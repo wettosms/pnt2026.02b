@@ -9,26 +9,24 @@
 
 <body>
 
-    <table border="1">
+    <h1>Formulario de Cadastro de Usuarios</h1>
 
-        <tr>
 
-            <h1>Formulario de Cadastro de Usuarios</h1>
+    <form name="cad_user" action="bd/senhas.html" method="post">
+        <label for="nome">Informe seu nome:</label></td>
+    </form>
+    <input type="text" name="nome" id="nome" />
 
-        </tr>
+    <br><label for="email">Informe seu email</label></br>
+    <input type="text" name="email" id="email" />
 
-        <form name="cad_user" action="bd/senhas.html" method="post">
-            <label for="nome">Informe seu nome:</label></td>
-        </form>
-        <input type="text" name="nome" id="nome" />
+    <br> <label for="senhas">Informe sua senhas: </label></br>
+    <input type="password" name="password id=" password /></br>
 
-        <br><label for="email">Informe seu email</label></br>
-        <input type="text" name="email" id="email" />
+    <label for="reuniao">Horario da reunião do time</label></b>
+    <imput type="radio" name="reuniao" id="reuniao" value="manha">Manhã</imput>
 
-        <br> <label for="senhas">Informe sua senhas: </label></br>
-        <input type="password" name="password id=" password />
-
-        </form>
+    </form>
 
 </body>
 
@@ -40,35 +38,56 @@
 
         <table>
 
-    <table border="1">
-        <tr>
-            <th colspan="3" bgcolor="#x000BE"><h1>Solicitação de Cancelamento</h1></th>
-        </tr>
+            <table border="1">
+                <tr>
+                    <th colspan="3" bgcolor="#x000BE">
+
+                        <h3>Solicitação de Cancelamento</h3>
+                    </th>
+                </tr>
 
 
-            <label for="pessoa responsavel por esta solicitacao">Pessoa responsável por esta Solicitação:</label>
-            <input type="text" id="pessoa responsavel por esta solicitacao"
-                name="Pessoa responsável por esta Solicitação" />
+                <label for="pessoa responsavel por esta solicitacao">Pessoa responsável por esta Solicitação:</label>
+                <input type="text" id="pessoa responsavel por esta solicitacao"
+                    name="Pessoa responsável por esta Solicitação" />
 
-            </br><label for="rg numero">RG número:</label>
-            <input type="text" id="rg numero" name="RG número" />
+                </br><label for="rg numero">RG número:</label>
+                <input type="text" id="rg numero" name="RG número" />
 
-            </br><label for="expedido por">Expedido:</label>
-            <input type="text" id="expedido" name="Expedido" />
+                </br><label for="expedido por">Expedido:</label>
+                <input type="text" id="expedido" name="Expedido" />
 
-            </br><label for="email para contato">Email para contato:</label>
-            <input type="text" id="email para contato" name="Email para contato" />
+                </br><label for="email para contato">Email para contato:</label>
+                <input type="text" id="email para contato" name="Email para contato" />
 
-            </br><label for="telefone para contato">Telefone para contato:</label>
-            <input type="text" id="telefone para contato" name="Telefone para contato" />
+                </br><label for="telefone para contato">Telefone para contato:</label>
+                <input type="text" id="telefone para contato" name="Telefone para contato" />
 
-            </br><label for="motivo do cancelamento"> Motivo do cancelamento:</label>
-            <input type="text" id="motivo do cancelamento" name="Motivo do cancelamento" />
+                </br><label for="motivo do cancelamento"> Motivo do cancelamento:</label>
+                <input type="text" id="motivo do cancelamento" name="Motivo do cancelamento" />
 
-            </br><button type="submit">Enviar dados</button>
+                </br><button type="submit">Enviar dados</button>
+            </table></br>
+
+            <b> Horario da reunião do time<b></br>
+                    <imput type="radio" name="reuniao" id="manha" value="manha" />
+                    <label for="manha">Manhã</label><br />
+                    <imput type="radio" name="reuniao" id="manha" value="manha" />
+                    <label for="manha">Manhã</label><br />
+                    <imput type="radio" name="reuniao" id="manha" value="manha" />
+                    <label for="manha">Manhã</label><br />
 
 
-             </table></BR>
+
+                    <b>Tipo de reunião</b><br />
+                    <input type="checkbox" name="tipo" id="remoto" value="remot" />
+                    <label for="remoto">Remota</label></br />
+                    <input type="checkbox" name="tipo" id="remoto" value="remot" />
+                    <label for="remoto">Remota</label></br />
+                    <input type="checkbox" name="tipo" id="remoto" value="remot" />
+                    <label for="remoto">Remota</label></br />
+
+        </table></BR>
     </form>
 
 
