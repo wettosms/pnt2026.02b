@@ -1,0 +1,29 @@
+/*
+Esse CSS esta sendo aplicado ao arquivo index.html e coletado pelo arquivo cssstyle.css
+*/
+
+h2 {
+    color: #13db13;
+    font-size: 50px;
+}
+
+h3 {
+    color: #e6ab0a;
+    font-size: 20px;
+}
+
+p {
+    color: #017a01;
+    margin-left: 50px;
+    text-align: justify;
+}
+
+p.vermelho {
+    color: rgb(211, 21, 78);
+    margin-left: 50px;
+    text-align: justify;
+}
+
+a.removelink {
+    text-decoration: none;
+}
