@@ -1,29 +1,51 @@
 /*
 Esse CSS esta sendo aplicado ao arquivo index.html e coletado pelo arquivo cssstyle.css
 */
+.root{
+
+}
 
 h2 {
     color: #13db13;
     font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h3 {
     color: #e6ab0a;
     font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 p {
     color: #017a01;
     margin-left: 50px;
     text-align: justify;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 p.vermelho {
     color: rgb(211, 21, 78);
     margin-left: 50px;
     text-align: justify;
+    font-family:Arial, Helvetica, sans-serif;
+
 }
 
 a.removelink {
     text-decoration: none;
+}
+
+a:hover{
+    color: #e6ab0a;
+}
+
+
+li.italico{
+font-style: normal;
+font-size: 50px;
+}
+
+li.capitalize{
+text-transform:capitalize;
 }
