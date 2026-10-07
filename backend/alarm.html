@@ -79,20 +79,20 @@
     <audio id="alarmAudio" src="../icone/midia/alarm.mp3" loop></audio>
 
     <script>
-        const form = document.getElementById("alarmForm");
-        const minutes = document.getElementById("minutes");
-        const seconds = document.getElementById("seconds");
-        const display = document.getElementById("timerDisplay");
-        const status = document.getElementById("status");
-        const startButton = document.getElementById("startButton");
-        const stopButton = document.getElementById("stopButton");
-        const audio = document.getElementById("alarmAudio");
+        var form = document.getElementById("alarmForm");
+        var minutes = document.getElementById("minutes");
+        var seconds = document.getElementById("seconds");
+        var display = document.getElementById("timerDisplay");
+        var status = document.getElementById("status");
+        var startButton = document.getElementById("startButton");
+        var stopButton = document.getElementById("stopButton");
+        var audio = document.getElementById("alarmAudio");
         let timer;
         let remaining = 0;
 
         function showTime() {
-            const min = Math.floor(remaining / 60);
-            const sec = remaining % 60;
+            var min = Math.floor(remaining / 60);
+            var sec = remaining % 60;
             display.textContent = `${String(min).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
         }
 
