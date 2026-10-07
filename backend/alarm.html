@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarme</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f5f0;
+        }
+
+        main {
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+        }
+
+        .campos {
+            display: flex;
+            gap: 10px;
+        }
+
+        .campo {
+            flex: 1;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #timerDisplay {
+            text-align: center;
+            font-size: 48px;
+        }
+
+        #status {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <p><a href="../index.html">Início</a> | <a href="../index.html#menu">Menu</a></p>
+
+    <main>
+        <h1>Despertador</h1>
+        <p id="timerDisplay">00:00</p>
+
+        <form id="alarmForm">
+            <div class="campos">
+                <div class="campo">
+                    <label for="minutes">Minutos</label>
+                    <input id="minutes" type="number" min="0" value="0">
+                </div>
+                <div class="campo">
+                    <label for="seconds">Segundos</label>
+                    <input id="seconds" type="number" min="0" max="59" value="0">
+                </div>
+            </div>
+            <button id="startButton">Começar</button>
+            <button id="stopButton" type="button" hidden>Cancelar</button>
+        </form>
+
+        <p id="status">Defina o tempo e comece.</p>
+    </main>
+
+    <audio id="alarmAudio" src="../icone/midia/alarm.mp3" loop></audio>
+
+    <script>
+        const form = document.getElementById("alarmForm");
+        const minutes = document.getElementById("minutes");
+        const seconds = document.getElementById("seconds");
+        const display = document.getElementById("timerDisplay");
+        const status = document.getElementById("status");
+        const startButton = document.getElementById("startButton");
+        const stopButton = document.getElementById("stopButton");
+        const audio = document.getElementById("alarmAudio");
+        let timer;
+        let remaining = 0;
+
+        function showTime() {
+            const min = Math.floor(remaining / 60);
+            const sec = remaining % 60;
+            display.textContent = `${String(min).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
+        }
+
+        function stopTimer() {
+            clearInterval(timer);
+            timer = null;
+            audio.pause();
+            audio.currentTime = 0;
+            minutes.disabled = false;
+            seconds.disabled = false;
+            startButton.disabled = false;
+            stopButton.hidden = true;
+            status.textContent = "Temporizador parado.";
+        }
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            remaining = Number(minutes.value) * 60 + Number(seconds.value);
+
+            if (remaining <= 0 || seconds.value > 59) {
+                status.textContent = "Informe minutos ou segundos válidos.";
+                return;
+            }
+
+            clearInterval(timer);
+            audio.pause();
+            audio.currentTime = 0;
+            minutes.disabled = true;
+            seconds.disabled = true;
+            startButton.disabled = true;
+            stopButton.hidden = false;
+            stopButton.textContent = "Cancelar";
+            status.textContent = "Temporizador em andamento.";
+            showTime();
+
+            timer = setInterval(() => {
+                remaining--;
+                showTime();
+
+                if (remaining <= 0) {
+                    clearInterval(timer);
+                    timer = null;
+                    minutes.disabled = false;
+                    seconds.disabled = false;
+                    startButton.disabled = false;
+                    stopButton.textContent = "Parar alarme";
+                    status.textContent = "Tempo encerrado!";
+                    audio.play().catch(() => {
+                        status.textContent = "Tempo encerrado, mas não foi possível tocar o áudio.";
+                    });
+                }
+            }, 1000);
+        });
+
+        stopButton.addEventListener("click", stopTimer);
+    </script>
+</body>
+
+</html>
